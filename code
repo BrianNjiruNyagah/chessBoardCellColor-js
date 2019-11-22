@@ -1,0 +1,30 @@
+function chessBoardCellColor(cell1, cell2) {
+    //gives the cell alphabet a number to be able to work on their position
+    var alphabets = {A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8};
+    
+    return (check(cell1,alphabets) == check(cell2,alphabets));
+}
+//function sorts out the color of the given coordinate
+function check(cell,alphabets){
+    //variable saves the state of the of the cell
+    var blackIndicator;
+    /*sorts out the cell location with the logic
+     * of,odd horizontal values have their odd vertival values
+     * deeper shaded while even horizontal values have their 
+     * even vertical values more shaded 
+    */ 
+    if(alphabets[cell.charAt(0)]%2 == 0){
+        if(cell.charAt(1)%2 == 0){
+            blackIndicator = true;
+        }else{
+            blackIndicator = false;
+        }
+    }else{
+         if(cell.charAt(1)%2 == 0){
+            blackIndicator = false;
+        }else{
+            blackIndicator = true;
+        }
+    }
+    return blackIndicator;
+}
